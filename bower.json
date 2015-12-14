@@ -1,0 +1,23 @@
+{
+  "name": "social",
+  "description": "",
+  "main": "",
+  "authors": [
+    "tom <toomastahves@hotmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/toomastahves/social",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}

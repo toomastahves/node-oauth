@@ -3,7 +3,7 @@
 
   "requireCurlyBraces": false,
   "requireOperatorBeforeLineBreak": true,
-  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
   "maximumLineLength": {
     "value": 200,
     "allowComments": true,
