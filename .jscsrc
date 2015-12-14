@@ -1,0 +1,38 @@
+{
+  "excludeFiles": ["node_modules/**", "bower_components/**", "coverage/**", ".git/**"],
+
+  "requireCurlyBraces": false,
+  "requireOperatorBeforeLineBreak": true,
+  "requireCamelCaseOrUpperCaseIdentifiers": true,
+  "maximumLineLength": {
+    "value": 200,
+    "allowComments": true,
+    "allowRegex": true
+  },
+  "validateIndentation": 2,
+  "validateQuoteMarks": "'",
+  "requireParenthesesAroundIIFE": true,
+
+  "disallowCommaBeforeLineBreak": false,
+  "requireCommaBeforeLineBreak": true,
+  "disallowMultipleVarDecl": true,
+  "requireMultipleVarDecl": false,
+
+  "disallowMultipleLineStrings": true,
+  "disallowMixedSpacesAndTabs": true,
+  "disallowTrailingWhitespace": true,
+  "disallowSpaceAfterPrefixUnaryOperators": true,
+  "requireSpaceAfterKeywords": false,
+  "requireSpaceBeforeBinaryOperators": true,
+  "requireSpaceAfterBinaryOperators": true,
+  "requireSpacesInConditionalExpression": true,
+  "requireSpaceBeforeBlockStatements": true,
+  "disallowSpacesInsideObjectBrackets": "all",
+  "disallowSpacesInsideArrayBrackets": "all",
+  "disallowSpacesInsideParentheses": true,
+  "disallowMultipleLineBreaks": true,
+  "disallowDanglingUnderscores": false,
+  "disallowEmptyBlocks": false,
+  "disallowTrailingComma": false,
+  "requireDotNotation": false
+}
