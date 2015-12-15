@@ -5,7 +5,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 var app = express();
+var db = mongoose.connect('mongodb://localhost:27017/social');
 
 // --user session--
 var session = require('express-session');

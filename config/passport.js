@@ -1,6 +1,7 @@
 'use strict';
 
 var passport = require('passport');
+var credentials = require('./credentials.json');
 
 module.exports = function(app) {
   app.use(passport.initialize());
@@ -14,7 +15,7 @@ module.exports = function(app) {
     done(null, user);
   });
 
-  require('./strategies/google.strategy')();
-  require('./strategies/twitter.strategy')();
-  require('./strategies/facebook.strategy')();
+  require('./strategies/google.strategy')(credentials.google);
+  require('./strategies/twitter.strategy')(credentials.twitter);
+  require('./strategies/facebook.strategy')(credentials.facebook);
 };
