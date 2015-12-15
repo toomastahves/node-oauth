@@ -2,7 +2,6 @@
 var User = require('../models/user.model');
 
 function getUser(data) {
-  console.log('twitter');
   var query = {'twitter.id': data.profile.id};
   User.findOne(query, function(error, user) {
     if(user) {
