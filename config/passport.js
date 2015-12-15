@@ -1,7 +1,7 @@
 'use strict';
 
 var passport = require('passport');
-var credentials = require('./credentials.json');
+var credentials = require('./api.credentials.json');
 
 module.exports = function(app) {
   app.use(passport.initialize());

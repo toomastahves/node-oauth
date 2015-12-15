@@ -12,7 +12,7 @@ router.use('/', function(req, res, next) {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('users', {user: {name: req.user.displayName, image: req.user.image}});
+  res.render('users', {user: req.user});
 });
 
 module.exports = router;

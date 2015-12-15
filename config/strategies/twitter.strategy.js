@@ -2,34 +2,23 @@
 
 var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
-var User = require('../../models/userModel');
+var User = require('../../models/user.model');
+var TwitterController = require('../../controllers/auth.twitter.controller');
 
-var findUser = function(req, token, tokenSecret, profile, done) {
-  var query = {
-    'twitter.id': profile.id
+var userInfo = function(req, token, tokenSecret, profile, done) {
+
+  var data = {
+    profile: profile,
+    token: token,
+    tokenSecret: tokenSecret,
+    done: done
   };
-  User.findOne(query, function(error, user) {
-    if(user) {
-      console.log('user found');
-      done(null, user);
-    } else {
-      console.log('user not found');
-      user = new User();
-      user.image = profile._json.profile_image_url;
-      user.displayName = profile.displayName;
 
-      user.twitter = {};
-      user.twitter.id = profile.id;
-      user.twitter.token = token;
-
-      user.save();
-      done(null, user);
-    }
-  });
+  TwitterController.getUser(data);
 };
 
 function useStrategy(credentials) {
-  var strat = new TwitterStrategy(credentials, findUser);
+  var strat = new TwitterStrategy(credentials, userInfo);
   passport.use(strat);
 }
 

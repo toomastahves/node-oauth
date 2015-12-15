@@ -2,34 +2,22 @@
 
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
-var User = require('../../models/userModel');
+var User = require('../../models/user.model');
+var FacebookController = require('../../controllers/auth.facebook.controller');
 
-var findUser = function(accessToken, refreshToken, profile, done) {
-  var query = {
-    'facebook.id': profile.id
+var userInfo = function(accessToken, refreshToken, profile, done) {
+
+  var data = {
+    profile: profile,
+    token: accessToken,
+    done: done
   };
-  User.findOne(query, function(error, user) {
-    if(user) {
-      console.log('user found');
-      done(null, user);
-    } else {
-      console.log('user not found');
-      user = new User();
-      //user.email = profile.emails[0].value;
-      user.displayName = profile.displayName;
 
-      user.facebook = {};
-      user.facebook.id = profile.id;
-      user.facebook.token = accessToken;
-
-      user.save();
-      done(null, user);
-    }
-  });
+  FacebookController.getUser(data);
 };
 
 function useStrategy(credentials) {
-  var strat = new FacebookStrategy(credentials, findUser);
+  var strat = new FacebookStrategy(credentials, userInfo);
   passport.use(strat);
 }
 
